@@ -41,6 +41,6 @@ public final class TimingHunterTransform extends HunterTransform {
 
     @Override
     protected boolean inDuplicatedClassSafeMode() {
-        return timingHunterExtension.duplcatedClassSafeMode;
+        return timingHunterExtension.duplicatedClassSafeMode;
     }
 }
