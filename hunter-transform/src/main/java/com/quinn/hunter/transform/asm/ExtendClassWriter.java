@@ -59,14 +59,13 @@ public class ExtendClassWriter extends ClassWriter {
         }
 
         if (isInterface(type2ClassReader)) {
-            String interfaceName = type2;
-            if (isImplements(interfaceName, type1ClassReader)) {
-                return interfaceName;
+            if (isImplements(type2, type1ClassReader)) {
+                return type2;
             }
             return OBJECT;
         }
 
-        final Set<String> superClassNames = new HashSet<String>();
+        final Set<String> superClassNames = new HashSet<>();
         superClassNames.add(type1);
         superClassNames.add(type2);
 
@@ -149,19 +148,11 @@ public class ExtendClassWriter extends ClassWriter {
     }
 
     private ClassReader getClassReader(final String className) {
-        InputStream inputStream = urlClassLoader.getResourceAsStream(className + ".class");
-        try {
+        try (InputStream inputStream = urlClassLoader.getResourceAsStream(className + ".class")) {
             if (inputStream != null) {
                 return new ClassReader(inputStream);
             }
         } catch (IOException ignored) {
-        } finally {
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException ignored) {
-                }
-            }
         }
         return null;
     }
