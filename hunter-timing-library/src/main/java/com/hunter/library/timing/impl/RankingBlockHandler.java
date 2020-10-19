@@ -23,10 +23,10 @@ import java.util.concurrent.Executors;
 public class RankingBlockHandler implements IBlockHandler {
 
     private final String TAG = "RankingBlockHandler";
-    private String newline = System.getProperty("line.separator");
-    private String doubleNewline = newline + newline;
-    private ConcurrentHashMap<String, ArrayList<Integer>> methodBlockDetails = new ConcurrentHashMap<>();
-    private ExecutorService executorService = Executors.newSingleThreadExecutor();
+    private final String newline = System.getProperty("line.separator");
+    private final String doubleNewline = newline + newline;
+    private final ConcurrentHashMap<String, ArrayList<Integer>> methodBlockDetails = new ConcurrentHashMap<>();
+    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
     private final int threshold;
 
     public RankingBlockHandler(int threshold) {

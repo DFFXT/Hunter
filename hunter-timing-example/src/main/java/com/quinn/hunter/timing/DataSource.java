@@ -10,7 +10,7 @@ public class DataSource{
 
     private static final String TAG = "DataSource";
 
-    private static DataSource instance = new DataSource();
+    private static final DataSource instance = new DataSource();
 
     public static DataSource getInstance() {
         return instance;
@@ -18,21 +18,20 @@ public class DataSource{
 
     public DataSource() {
         try {
-            Log.i(TAG, "Initing DataSource");
+            Log.i(TAG, "Init DataSource");
             Thread.sleep(800);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    public String getUserName(){
+    public void getUserName() {
         try {
-            Log.i(TAG, "Queriing DataSource");
+            Log.i(TAG, "Querying DataSource");
             Thread.sleep(900);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return "UserNameX";
     }
 
     public void saveHugeFileToDisk() {

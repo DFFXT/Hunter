@@ -89,7 +89,7 @@ public class HunterTransform extends Transform {
             emptyRun = runVariant == RunVariant.DEBUG || runVariant == RunVariant.NEVER;
         }
         logger.warn(getName() + " isIncremental = " + isIncremental + ", runVariant = "
-                + runVariant + ", emptyRun = " + emptyRun + ", inDuplcatedClassSafeMode = " + inDuplicatedClassSafeMode());
+                + runVariant + ", emptyRun = " + emptyRun + ", inDuplicatedClassSafeMode = " + inDuplicatedClassSafeMode());
         long startTime = System.currentTimeMillis();
         if(!isIncremental) {
             outputProvider.deleteAll();
@@ -120,7 +120,7 @@ public class HunterTransform extends Transform {
                             break;
                     }
                 } else {
-                    //Forgive me!, Some project will store 3rd-party aar for several copies in dexbuilder folder,unknown issue.
+                    //Forgive me!, Some project will store 3rd-party aar for several copies in dexBuilder folder,unknown issue.
                     if(inDuplicatedClassSafeMode() & !isIncremental && !flagForCleanDexBuilderFolder) {
                         cleanDexBuilderFolder(dest);
                         flagForCleanDexBuilderFolder = true;
@@ -231,11 +231,11 @@ public class HunterTransform extends Transform {
         });
     }
 
-    private String replaceLastPart(String originString, String replacement, String toreplace) {
+    private String replaceLastPart(String originString, String replacement, String toReplace) {
         int start = originString.lastIndexOf(replacement);
         StringBuilder builder = new StringBuilder();
-        builder.append(originString.substring(0, start));
-        builder.append(toreplace);
+        builder.append(originString, 0, start);
+        builder.append(toReplace);
         builder.append(originString.substring(start + replacement.length()));
         return builder.toString();
     }

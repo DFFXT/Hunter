@@ -18,10 +18,10 @@ import java.util.concurrent.Executors;
 public class StacktraceBlockHandler implements IBlockHandler {
 
     private final String TAG = "StacktraceBlockImpl";
-    private String newline = System.getProperty("line.separator");
-    private String doubleNewline = newline + newline;
-    private List<StacktraceBlockHandler.BlockTrace> blockTraces = Collections.synchronizedList(new ArrayList<StacktraceBlockHandler.BlockTrace>());
-    private ExecutorService executorService = Executors.newSingleThreadExecutor();
+    private final String newline = System.getProperty("line.separator");
+    private final String doubleNewline = newline + newline;
+    private final List<StacktraceBlockHandler.BlockTrace> blockTraces = Collections.synchronizedList(new ArrayList<StacktraceBlockHandler.BlockTrace>());
+    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
     private final int threshold;
 
     public StacktraceBlockHandler(int threshold) {

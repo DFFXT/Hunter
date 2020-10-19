@@ -1,6 +1,5 @@
 package com.quinn.hunter.plugin.timing.bytecode;
 
-import com.android.build.gradle.internal.LoggerWrapper;
 import com.quinn.hunter.plugin.timing.TimingHunterExtension;
 import com.quinn.hunter.transform.asm.BaseWeaver;
 import org.objectweb.asm.ClassVisitor;
@@ -30,8 +29,9 @@ public final class TimingWeaver extends BaseWeaver {
             if(!timingHunterExtension.whitelist.isEmpty()) {
                 boolean inWhiteList = false;
                 for(String item : timingHunterExtension.whitelist) {
-                    if(fullQualifiedClassName.startsWith(item)) {
+                    if (fullQualifiedClassName.startsWith(item)) {
                         inWhiteList = true;
+                        break;
                     }
                 }
                 return superResult && !isByteCodePlugin && inWhiteList;
@@ -39,8 +39,9 @@ public final class TimingWeaver extends BaseWeaver {
             if(!timingHunterExtension.blacklist.isEmpty()) {
                 boolean inBlackList = false;
                 for(String item : timingHunterExtension.blacklist) {
-                    if(fullQualifiedClassName.startsWith(item)) {
+                    if (fullQualifiedClassName.startsWith(item)) {
                         inBlackList = true;
+                        break;
                     }
                 }
                 return superResult && !isByteCodePlugin && !inBlackList;
