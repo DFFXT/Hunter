@@ -8,12 +8,8 @@ import com.hunter.library.debug.HunterDebugClass;
 import com.hunter.library.debug.HunterDebugImpl;
 import com.hunter.library.debug.HunterDebugSkip;
 
-
-
 @HunterDebugClass
 public class ClassTest2 {
-
-
     @HunterDebugSkip
     public String test1(int age){
         try {
@@ -26,9 +22,9 @@ public class ClassTest2 {
         return "success";
     }
 
-//    private void test2(String name,int age){
-//        throw new RuntimeException("not impl");
-//    }
+    private void test2(String name,int age){
+        throw new RuntimeException("not impl");
+    }
 
     @HunterDebugImpl
     protected void test3(Intent intent,String age){

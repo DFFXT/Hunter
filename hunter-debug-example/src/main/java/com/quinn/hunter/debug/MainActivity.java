@@ -72,19 +72,17 @@ public class MainActivity extends Activity {
     };
 
     @HunterDebugImpl
-    private String appendIntAndString(int a, String b) {
+    private void appendIntAndString(int a, String b) {
         SystemClock.sleep(100);
-        return a + " " + b;
     }
 
     private List<String> paramNames = new ArrayList<>();
 
     @HunterDebug
-    private int method_test_parameter(boolean bool_v, byte byte_v, char char_v, short short_v, int int_v, long long_v, float float_v, double double_v, String string_v, int[] arr, Bundle savedInstanceState){
+    private void method_test_parameter(boolean bool_v, byte byte_v, char char_v, short short_v, int int_v, long long_v, float float_v, double double_v, String string_v, int[] arr, Bundle savedInstanceState){
         int insideLocal = 5;
         int insideLocal2 = 6;
         Log.i(TAG, "insideLocal " + insideLocal);
-        return insideLocal + insideLocal2;
     }
 
     @HunterDebug
@@ -93,67 +91,53 @@ public class MainActivity extends Activity {
     }
 
     @HunterDebug
-    private boolean method_return_boolean() {
-        return true;
+    private void method_return_boolean() {
     }
 
     @HunterDebug
-    private char method_return_char(){
-        return 'c';
+    private void method_return_char(){
     }
     @HunterDebug
-    private byte method_return_byte(){
-        return 0x01;
+    private void method_return_byte(){
     }
     @HunterDebug
-    private short method_return_short(){
-        return 2;
+    private void method_return_short(){
     }
     @HunterDebug
-    private int method_return_int(){
-        return 2;
+    private void method_return_int(){
     }
     @HunterDebug
-    private long method_return_long(){
-        return 2L;
+    private void method_return_long(){
     }
     @HunterDebug
-    private double method_return_double(){
-        return 2;
+    private void method_return_double(){
     }
     @HunterDebug
-    private float method_return_float(){
-        return 2.0f;
+    private void method_return_float(){
     }
 
     @HunterDebug
-    private MainPresenter method_return_object(){
-        return new MainPresenter();
+    private void method_return_object(){
+        new MainPresenter();
     }
 
     @HunterDebug
-    private MainPresenter[] method_return_object_array(){
-        return new MainPresenter[]{new MainPresenter(),new MainPresenter(),new MainPresenter()};
+    private void method_return_object_array(){
+        new MainPresenter();
+        new MainPresenter();
+        new MainPresenter();
     }
     @HunterDebug
-    private int[] method_return_array(){
-        return new int[]{1,2,3};
-    }
-
-    @HunterDebug
-    private static Object method_static(String str){
-        return "object string" + str;
+    private void method_return_array(){
     }
 
     @HunterDebug
-    private int method_throw_exception() throws Exception{
-        int a = 10;
-        int b = 0;
-        if(b == 0) {
-            throw new IllegalArgumentException("illagel argu");
-        }
-        int result = a / 0;
-        return result;
+    private static void method_static(String str){
+    }
+
+    @HunterDebug
+    private void method_throw_exception() throws Exception{
+        throw new IllegalArgumentException("illegal argu");
     }
 
     @HunterDebug
