@@ -46,9 +46,6 @@ public class ClassLoaderHelper {
         return new URLClassLoader(classLoaderUrls);
     }
 
-    /**
-     * /Users/quinn/Documents/Android/SDK/platforms/android-28/android.jar
-     */
     private static String getAndroidJarPath(Project project) {
         AppExtension appExtension = (AppExtension)project.getProperties().get("android");
         String sdkDirectory = appExtension.getSdkDirectory().getAbsolutePath();
@@ -56,6 +53,4 @@ public class ClassLoaderHelper {
         sdkDirectory = sdkDirectory + File.separator + "platforms" + File.separator;
         return sdkDirectory + compileSdkVersion + File.separator + "android.jar";
     }
-
-
 }
