@@ -72,12 +72,12 @@ public class RankingBlockHandler implements IBlockHandler {
         int toppestCount = Math.min(count, method_block_average_map.keySet().size());
         int index = 0;
         StringBuilder result = new StringBuilder();
-        result.append(doubleNewline).append("------Average Block-Time Ranking----").append("Top " + toppestCount).append("----");
+        result.append(doubleNewline).append("------Average Block-Time Ranking----").append("Top ").append(toppestCount).append("----");
         result.append(newline);
         for(String key: method_block_average_map.keySet()){
             if(index++ < toppestCount) {
-                result.append(key + ": " + formatFloat(method_block_average_map.get(key)) + "ms");
-                result.append("(Count : " +method_block_count_map.get(key) + ")");
+                result.append(key).append(": ").append(formatFloat(method_block_average_map.get(key))).append("ms");
+                result.append("(Count : ").append(method_block_count_map.get(key)).append(")");
                 result.append(newline);
             }else {
                 break;
@@ -85,12 +85,12 @@ public class RankingBlockHandler implements IBlockHandler {
         }
         toppestCount = Math.min(count, method_block_count_map.keySet().size());
         index = 0;
-        result.append("------Block Count Ranking----").append("Top " + toppestCount).append("----");
+        result.append("------Block Count Ranking----").append("Top ").append(toppestCount).append("----");
         result.append(newline);
         for(String key: method_block_count_map.keySet()){
             if(index++ < toppestCount) {
-                result.append(key + ": " + method_block_count_map.get(key) + "");
-                result.append("(Avg : " + formatFloat(method_block_average_map.get(key)) + "ms)");
+                result.append(key).append(": ").append(method_block_count_map.get(key));
+                result.append("(Avg : ").append(formatFloat(method_block_average_map.get(key))).append("ms)");
                 result.append(newline);
             }else {
                 break;

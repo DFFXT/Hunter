@@ -36,12 +36,12 @@ public interface IBlockHandler {
         }
     };
 
-    public void timingMethod(String method, int cost);
+    void timingMethod(String method, int cost);
 
-    public String dump();
+    String dump();
 
-    public void clear();
+    void clear();
 
-    public int threshold();
+    int threshold();
 
 }

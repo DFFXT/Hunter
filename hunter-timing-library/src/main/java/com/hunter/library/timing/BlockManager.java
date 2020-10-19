@@ -18,5 +18,4 @@ public class BlockManager {
             iBlockHandler.timingMethod(method, (int)cost);
         }
     }
-
 }
