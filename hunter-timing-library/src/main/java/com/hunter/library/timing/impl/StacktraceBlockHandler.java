@@ -38,7 +38,8 @@ public class StacktraceBlockHandler implements IBlockHandler {
         executorService.submit(new Runnable() {
             @Override
             public void run() {
-                buildStacktrace(mills, currMethod.getClassName() + "." + currMethod.getMethodName(), callMethod.getClassName() + "." + callMethod.getMethodName());
+                buildStacktrace(mills, currMethod.getClassName() + "." + currMethod.getMethodName(),
+                        callMethod.getClassName() + "." + callMethod.getMethodName());
             }
         });
 
@@ -111,12 +112,12 @@ public class StacktraceBlockHandler implements IBlockHandler {
     }
 
     private class BlockTrace {
-        //Inner method is ahead of Outter method
+        //Inner method is ahead of Outer method
         ArrayList<String> methods = new ArrayList<>();
         ArrayList<Integer> mills = new ArrayList<>();
         int traceCostedTime = -1;
 
-        BlockTrace(){
+        BlockTrace() {
         }
 
         @Override

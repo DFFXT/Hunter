@@ -69,13 +69,13 @@ public class RankingBlockHandler implements IBlockHandler {
         }
         method_block_average_map = (HashMap<String, Float>) sortByValue(method_block_average_map);
         method_block_count_map = (HashMap<String, Integer>) sortByValue(method_block_count_map);
-        int toppestCount = Math.min(count, method_block_average_map.keySet().size());
+        int topCount = Math.min(count, method_block_average_map.keySet().size());
         int index = 0;
         StringBuilder result = new StringBuilder();
-        result.append(doubleNewline).append("------Average Block-Time Ranking----").append("Top ").append(toppestCount).append("----");
+        result.append(doubleNewline).append("------Average Block-Time Ranking----").append("Top ").append(topCount).append("----");
         result.append(newline);
         for(String key: method_block_average_map.keySet()){
-            if(index++ < toppestCount) {
+            if(index++ < topCount) {
                 result.append(key).append(": ").append(formatFloat(method_block_average_map.get(key))).append("ms");
                 result.append("(Count : ").append(method_block_count_map.get(key)).append(")");
                 result.append(newline);
@@ -83,12 +83,12 @@ public class RankingBlockHandler implements IBlockHandler {
                 break;
             }
         }
-        toppestCount = Math.min(count, method_block_count_map.keySet().size());
+        topCount = Math.min(count, method_block_count_map.keySet().size());
         index = 0;
-        result.append("------Block Count Ranking----").append("Top ").append(toppestCount).append("----");
+        result.append("------Block Count Ranking----").append("Top ").append(topCount).append("----");
         result.append(newline);
         for(String key: method_block_count_map.keySet()){
-            if(index++ < toppestCount) {
+            if(index++ < topCount) {
                 result.append(key).append(": ").append(method_block_count_map.get(key));
                 result.append("(Avg : ").append(formatFloat(method_block_average_map.get(key))).append("ms)");
                 result.append(newline);
