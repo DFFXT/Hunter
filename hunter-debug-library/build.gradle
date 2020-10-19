@@ -38,7 +38,7 @@ dependencies {
 //    libraryName = 'hunter-debug-library'
 //    artifact = 'hunter-debug-library'
 //
-//    libraryDescription = 'A fast, incremental, cocurrent framework to develop compile plugin for android project'
+//    libraryDescription = 'A fast, incremental, concurrent framework to develop compile plugin for android project'
 //
 //    siteUrl = 'https://github.com/Leaking/Hunter'
 //    gitUrl = 'https://github.com/Leaking/Hunter.git'
