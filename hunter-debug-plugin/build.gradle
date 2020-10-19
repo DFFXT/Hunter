@@ -17,52 +17,54 @@ dependencies {
 }
 
 repositories {
+    maven {
+        url uri('../repo')
+    }
     google()
     jcenter()
     mavenCentral()
 }
 
 
-ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'hunter-debug-plugin'
-
-    publishedGroupId = 'com.quinn.hunter'
-    libraryName = 'hunter-debug-plugin'
-    artifact = 'hunter-debug-plugin'
-
-    libraryDescription = 'A fast, incremental, cocurrent framework to develop compile plugin for android project'
-
-    siteUrl = 'https://github.com/Leaking/Hunter'
-    gitUrl = 'https://github.com/Leaking/Hunter.git'
-
-    libraryVersion = '1.0.0'
-
-    developerId = 'Leaking'
-    developerName = 'QuinnChen'
-    developerEmail = 'chenhuazhaoao@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
-
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+//ext {
+//    bintrayRepo = 'maven'
+//    bintrayName = 'hunter-debug-plugin'
+//
+//    publishedGroupId = 'com.quinn.hunter'
+//    libraryName = 'hunter-debug-plugin'
+//    artifact = 'hunter-debug-plugin'
+//
+//    libraryDescription = 'A fast, incremental, cocurrent framework to develop compile plugin for android project'
+//
+//    siteUrl = 'https://github.com/Leaking/Hunter'
+//    gitUrl = 'https://github.com/Leaking/Hunter.git'
+//
+//    libraryVersion = '1.0.0'
+//
+//    developerId = 'Leaking'
+//    developerName = 'QuinnChen'
+//    developerEmail = 'chenhuazhaoao@gmail.com'
+//
+//    licenseName = 'The Apache Software License, Version 2.0'
+//    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//    allLicenses = ["Apache-2.0"]
+//}
+//
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
 
 //publish script for debug mode
 
-//apply plugin: 'maven'
-//
-//group='com.quinn.hunter'
-//version='1.0.0'
-//
-//def localRepoURL = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
-//
-//uploadArchives {
-//    repositories {
-//        mavenDeployer {
-//            repository(url: localRepoURL)
-//        }
-//    }
-//}
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.groupId = 'com.quinn.hunter' // 唯一标识（通常为模块包名，也可以任意）
+            pom.artifactId = "hunter-debug-plugin" // 项目名称（通常为类库模块名称，也可以任意）
+            pom.version = "1.0.0" // 版本号
+            pom.packaging = 'jar'
+            repository(url: uri("${rootProject.projectDir}/repo")) // 配置本地仓库路径，项目根目录下的repository目录中
+        }
+    }
+}

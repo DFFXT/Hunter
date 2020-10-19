@@ -1,7 +1,5 @@
 package com.quinn.hunter.transform.asm;
 
-import com.android.build.gradle.internal.LoggerWrapper;
-
 import org.apache.commons.io.FileUtils;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;

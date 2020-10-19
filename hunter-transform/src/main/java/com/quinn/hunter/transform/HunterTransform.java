@@ -89,7 +89,7 @@ public class HunterTransform extends Transform {
             emptyRun = runVariant == RunVariant.DEBUG || runVariant == RunVariant.NEVER;
         }
         logger.warn(getName() + " isIncremental = " + isIncremental + ", runVariant = "
-                + runVariant + ", emptyRun = " + emptyRun + ", inDuplcatedClassSafeMode = " + inDuplcatedClassSafeMode());
+                + runVariant + ", emptyRun = " + emptyRun + ", inDuplcatedClassSafeMode = " + inDuplicatedClassSafeMode());
         long startTime = System.currentTimeMillis();
         if(!isIncremental) {
             outputProvider.deleteAll();
@@ -121,7 +121,7 @@ public class HunterTransform extends Transform {
                     }
                 } else {
                     //Forgive me!, Some project will store 3rd-party aar for serveral copies in dexbuilder folder,,unknown issue.
-                    if(inDuplcatedClassSafeMode() & !isIncremental && !flagForCleanDexBuilderFolder) {
+                    if(inDuplicatedClassSafeMode() & !isIncremental && !flagForCleanDexBuilderFolder) {
                         cleanDexBuilderFolder(dest);
                         flagForCleanDexBuilderFolder = true;
                     }
@@ -249,7 +249,7 @@ public class HunterTransform extends Transform {
         return RunVariant.ALWAYS;
     }
 
-    protected boolean inDuplcatedClassSafeMode(){
+    protected boolean inDuplicatedClassSafeMode(){
         return false;
     }
 }
