@@ -4,7 +4,6 @@ import android.app.Application;
 
 import com.hunter.library.timing.BlockManager;
 import com.hunter.library.timing.IBlockHandler;
-import com.hunter.library.timing.impl.RankingBlockHandler;
 import com.hunter.library.timing.impl.StacktraceBlockHandler;
 
 /**
@@ -12,7 +11,7 @@ import com.hunter.library.timing.impl.StacktraceBlockHandler;
  */
 public class App extends Application {
 
-    private IBlockHandler customBlockManager = new StacktraceBlockHandler(50);
+    private final IBlockHandler customBlockManager = new StacktraceBlockHandler(50);
 
     @Override
     public void onCreate() {
