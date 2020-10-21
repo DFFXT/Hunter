@@ -44,9 +44,9 @@ public class HunterTransform extends Transform {
         SCOPES.add(QualifiedContent.Scope.EXTERNAL_LIBRARIES);
     }
 
-    private Project project;
+    private final Project project;
     protected BaseWeaver bytecodeWeaver;
-    private WaitableExecutor waitableExecutor;
+    private final WaitableExecutor waitableExecutor;
     private boolean emptyRun = false;
 
     public HunterTransform(Project project){

@@ -18,7 +18,7 @@ public class ExtendClassWriter extends ClassWriter {
 
     private static final String OBJECT = "java/lang/Object";
 
-    private ClassLoader urlClassLoader;
+    private final ClassLoader urlClassLoader;
 
     public ExtendClassWriter(ClassLoader urlClassLoader, int flags) {
         super(flags);
