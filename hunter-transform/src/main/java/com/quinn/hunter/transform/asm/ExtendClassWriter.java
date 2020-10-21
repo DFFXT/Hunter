@@ -25,9 +25,6 @@ public class ExtendClassWriter extends ClassWriter {
         this.urlClassLoader = urlClassLoader;
     }
 
-    /**
-     * https://github.com/Moniter123/pinpoint/blob/40106ffe6cc4d6aea9d59b4fb7324bcc009483ee/profiler/src/main/java/com/navercorp/pinpoint/profiler/instrument/ASMClassWriter.java
-     */
     @Override
     protected String getCommonSuperClass(final String type1, final String type2) {
         if (type1 == null || type1.equals(OBJECT) || type2 == null || type2.equals(OBJECT)) {
