@@ -38,6 +38,6 @@ public class DebugHunterTransform extends HunterTransform {
 
     @Override
     protected boolean inDuplicatedClassSafeMode() {
-        return debugHunterExtension.duplcatedClassSafeMode;
+        return debugHunterExtension.duplicatedClassSafeMode;
     }
 }
