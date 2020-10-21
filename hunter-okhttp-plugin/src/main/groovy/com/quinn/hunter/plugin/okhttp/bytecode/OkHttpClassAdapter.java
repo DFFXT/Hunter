@@ -4,8 +4,6 @@ import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 
-import java.io.File;
-
 /**
  * Created by Quinn on 09/09/2018.
  */
@@ -13,7 +11,7 @@ public final class OkHttpClassAdapter extends ClassVisitor{
 
     private String className;
 
-    private boolean weaveEventListener;
+    private final boolean weaveEventListener;
 
     OkHttpClassAdapter(final ClassVisitor cv, boolean weaveEventListener) {
         super(Opcodes.ASM5, cv);

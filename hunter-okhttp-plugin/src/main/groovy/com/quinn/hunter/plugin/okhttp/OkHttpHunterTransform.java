@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 final class OkHttpHunterTransform extends HunterTransform {
 
-    private Project project;
+    private final Project project;
     private OkHttpHunterExtension okHttpHunterExtension;
 
     public OkHttpHunterTransform(Project project) {
@@ -39,6 +39,6 @@ final class OkHttpHunterTransform extends HunterTransform {
 
     @Override
     protected boolean inDuplicatedClassSafeMode() {
-        return okHttpHunterExtension.duplcatedClassSafeMode;
+        return okHttpHunterExtension.duplicatedClassSafeMode;
     }
 }

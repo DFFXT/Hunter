@@ -6,15 +6,13 @@ import com.hunter.library.debug.HunterDebugClass;
 
 @HunterDebugClass
 public class ClassTest {
-    public String test1(int age){
+    public void test1(int age){
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-            return "fail";
         }
 
-        return "success";
     }
 
     private void test2(String name,int age){

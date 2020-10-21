@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public class DebugHunterTransform extends HunterTransform {
 
-    private Project project;
+    private final Project project;
     private DebugHunterExtension debugHunterExtension;
 
     public DebugHunterTransform(Project project) {

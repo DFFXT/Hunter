@@ -21,7 +21,7 @@ public class CustomGlobalEventListener extends EventListener{
 
     public static final EventListener.Factory FACTORY =  new EventListener.Factory() {
 
-        AtomicLong nextCallId = new AtomicLong(1L);
+        final AtomicLong nextCallId = new AtomicLong(1L);
 
         @Override
         public EventListener create(Call call) {
@@ -31,7 +31,7 @@ public class CustomGlobalEventListener extends EventListener{
 
     };
 
-    private long callId;
+    private final long callId;
     private long callStartNanos = 0L;
     private boolean isNewConnection = false;
 

@@ -8,13 +8,13 @@ import com.quinn.hunter.transform.RunVariant;
 public class DebugHunterExtension {
 
     public RunVariant runVariant = RunVariant.ALWAYS;
-    public boolean duplcatedClassSafeMode = false;
+    public boolean duplicatedClassSafeMode = false;
 
     @Override
     public String toString() {
         return "DebugHunterExtension{" +
                 "runVariant=" + runVariant +
-                ", duplcatedClassSafeMode=" + duplcatedClassSafeMode +
+                ", duplicatedClassSafeMode=" + duplicatedClassSafeMode +
                 '}';
     }
 }

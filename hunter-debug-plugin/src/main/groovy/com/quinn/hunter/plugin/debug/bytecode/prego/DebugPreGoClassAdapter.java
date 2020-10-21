@@ -1,6 +1,5 @@
 package com.quinn.hunter.plugin.debug.bytecode.prego;
 
-import com.android.build.gradle.internal.LoggerWrapper;
 import com.quinn.hunter.plugin.debug.bytecode.Parameter;
 
 import org.objectweb.asm.AnnotationVisitor;
@@ -18,13 +17,13 @@ import java.util.Map;
  */
 public final class DebugPreGoClassAdapter extends ClassVisitor{
 
-    private Map<String, List<Parameter>> methodParametersMap = new HashMap<>();
+    private final Map<String, List<Parameter>> methodParametersMap = new HashMap<>();
     private DebugPreGoMethodAdapter debugPreGoMethodAdapter;
     private boolean needParameter = false;
 
     private boolean classDebug = false;
-    private List<String> includes = new ArrayList<>();
-    private List<String> impls = new ArrayList<>();
+    private final List<String> includes = new ArrayList<>();
+    private final List<String> impls = new ArrayList<>();
 
     public DebugPreGoClassAdapter(final ClassVisitor cv) {
         super(Opcodes.ASM5, cv);
@@ -71,8 +70,6 @@ public final class DebugPreGoClassAdapter extends ClassVisitor{
     public boolean isNeedParameter() {
         return needParameter;
     }
-
-
 
     interface MethodCollector{
         void onIncludeMethod(String methodName,boolean useImpl);

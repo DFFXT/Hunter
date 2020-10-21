@@ -14,7 +14,7 @@ public final class OkHttpMethodAdapter extends LocalVariablesSorter implements O
 
     private static final LoggerWrapper logger = LoggerWrapper.getLogger(OkHttpMethodAdapter.class);
 
-    private boolean weaveEventListener;
+    private final boolean weaveEventListener;
 
     OkHttpMethodAdapter(int access, String desc, MethodVisitor mv, boolean weaveEventListener) {
         super(Opcodes.ASM5, access, desc, mv);

@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 public final class LinelogHunterTransform extends HunterTransform {
 
-    private Project project;
+    private final Project project;
     private LinelogHunterExtension linelogHunterExtension;
 
     public LinelogHunterTransform(Project project) {

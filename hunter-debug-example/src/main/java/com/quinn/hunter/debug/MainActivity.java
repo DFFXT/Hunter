@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
         }
         try {
             testVoidMethodWithException();
-        } catch (Exception error) {
+        } catch (Exception ignored) {
         }
         ClassTest classTest = new ClassTest();
         classTest.test1(1);

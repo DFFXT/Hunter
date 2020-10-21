@@ -16,12 +16,12 @@ import java.util.Map;
  */
 public final class DebugClassAdapter extends ClassVisitor{
 
-    private Map<String, List<Parameter>> methodParametersMap;
+    private final Map<String, List<Parameter>> methodParametersMap;
     private DebugMethodAdapter debugMethodAdapter;
     private String className;
 
-    private List<String> includeMethods = new ArrayList<String>();
-    private List<String> implMethods = new ArrayList<>();
+    private final List<String> includeMethods = new ArrayList<String>();
+    private final List<String> implMethods = new ArrayList<>();
 
     DebugClassAdapter(final ClassVisitor cv, final Map<String, List<Parameter>> methodParametersMap) {
         super(Opcodes.ASM5, cv);
