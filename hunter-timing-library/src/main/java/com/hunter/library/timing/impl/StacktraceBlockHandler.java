@@ -60,7 +60,7 @@ public class StacktraceBlockHandler implements IBlockHandler {
             }
         }
         if(!flag) {
-            StacktraceBlockHandler.BlockTrace blockTrace = new StacktraceBlockHandler.BlockTrace();
+            StacktraceBlockHandler.BlockTrace blockTrace = new BlockTrace();
             blockTrace.methods.add(currMethod);
             blockTrace.mills.add(currMills);
             blockTrace.methods.add(callMethod);
@@ -111,7 +111,7 @@ public class StacktraceBlockHandler implements IBlockHandler {
         return result.toString();
     }
 
-    private class BlockTrace {
+    private static class BlockTrace {
         //Inner method is ahead of Outer method
         ArrayList<String> methods = new ArrayList<>();
         ArrayList<Integer> mills = new ArrayList<>();
