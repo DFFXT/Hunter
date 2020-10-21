@@ -174,7 +174,7 @@ public class HunterTransform extends Transform {
 
         waitableExecutor.waitForTasksWithQuickFail(true);
         long costTime = System.currentTimeMillis() - startTime;
-        logger.warn((getName() + " costed " + costTime + "ms"));
+        logger.warn(getName() + " costed " + costTime + "ms");
     }
 
     private void transformSingleFile(final File inputFile, final File outputFile, final String srcBaseDir) {
