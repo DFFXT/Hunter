@@ -35,13 +35,11 @@ public abstract class BaseWeaver implements IWeaver{
 
     public final void weaveJar(File inputJar, File outputJar) throws IOException {
         ZipFile inputZip = new ZipFile(inputJar);
-        ZipOutputStream outputZip = new ZipOutputStream(new BufferedOutputStream(
-                java.nio.file.Files.newOutputStream(outputJar.toPath())));
+        ZipOutputStream outputZip = new ZipOutputStream(new BufferedOutputStream(java.nio.file.Files.newOutputStream(outputJar.toPath())));
         Enumeration<? extends ZipEntry> inEntries = inputZip.entries();
         while (inEntries.hasMoreElements()) {
             ZipEntry entry = inEntries.nextElement();
-            InputStream originalFile =
-                    new BufferedInputStream(inputZip.getInputStream(entry));
+            InputStream originalFile = new BufferedInputStream(inputZip.getInputStream(entry));
             ZipEntry outEntry = new ZipEntry(entry.getName());
             byte[] newEntryContent;
             // separator of entry name is always '/', even in windows
