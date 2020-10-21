@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public final class TimingHunterTransform extends HunterTransform {
 
-    private Project project;
+    private final Project project;
     private TimingHunterExtension timingHunterExtension;
 
     public TimingHunterTransform(Project project) {
