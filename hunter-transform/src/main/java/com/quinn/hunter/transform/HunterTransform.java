@@ -120,8 +120,8 @@ public class HunterTransform extends Transform {
                             break;
                     }
                 } else {
-                    //Forgive me!, Some project will store 3rd-party aar for several copies in dexBuilder folder,unknown issue.
-                    if(inDuplicatedClassSafeMode() & !isIncremental && !flagForCleanDexBuilderFolder) {
+                    //Forgive me!, Some project will store 3rd-party aar for several copies in dexBuilder folder, unknown issue.
+                    if(inDuplicatedClassSafeMode() && !isIncremental && !flagForCleanDexBuilderFolder) {
                         cleanDexBuilderFolder(dest);
                         flagForCleanDexBuilderFolder = true;
                     }
@@ -177,6 +177,32 @@ public class HunterTransform extends Transform {
         logger.warn(getName() + " costed " + costTime + "ms");
     }
 
+    private void cleanDexBuilderFolder(File dest) {
+        waitableExecutor.execute(() -> {
+            try {
+                String dexBuilderDir = replace(dest.getAbsolutePath(), getName(), "dexBuilder");
+                //intermediates/transforms/dexBuilder/debug
+                File file = new File(dexBuilderDir).getParentFile();
+                project.getLogger().warn("clean dexBuilder folder = " + file.getAbsolutePath());
+                if(file.exists() && file.isDirectory()) {
+                    com.android.utils.FileUtils.deleteDirectoryContents(file);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        });
+    }
+
+    private String replace(String originString, String replacement, String newStr) {
+        int start = originString.lastIndexOf(replacement);
+        StringBuilder builder = new StringBuilder();
+        builder.append(originString, 0, start);
+        builder.append(newStr);
+        builder.append(originString.substring(start + replacement.length()));
+        return builder.toString();
+    }
+
     private void transformSingleFile(final File inputFile, final File outputFile, final String srcBaseDir) {
         waitableExecutor.execute(() -> {
             bytecodeWeaver.weaveSingleClassToFile(inputFile, outputFile, srcBaseDir);
@@ -212,32 +238,6 @@ public class HunterTransform extends Transform {
             bytecodeWeaver.weaveJar(srcJar, destJar);
             return null;
         });
-    }
-
-    private void cleanDexBuilderFolder(File dest) {
-        waitableExecutor.execute(() -> {
-            try {
-                String dexBuilderDir = replaceLastPart(dest.getAbsolutePath(), getName(), "dexBuilder");
-                //intermediates/transforms/dexBuilder/debug
-                File file = new File(dexBuilderDir).getParentFile();
-                project.getLogger().warn("clean dexBuilder folder = " + file.getAbsolutePath());
-                if(file.exists() && file.isDirectory()) {
-                    com.android.utils.FileUtils.deleteDirectoryContents(file);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        });
-    }
-
-    private String replaceLastPart(String originString, String replacement, String toReplace) {
-        int start = originString.lastIndexOf(replacement);
-        StringBuilder builder = new StringBuilder();
-        builder.append(originString, 0, start);
-        builder.append(toReplace);
-        builder.append(originString.substring(start + replacement.length()));
-        return builder.toString();
     }
 
     @Override
